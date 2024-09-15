@@ -25,19 +25,19 @@ class UserLoginView(APIView):
         student_number = data.get('student_number')
         email = data.get('email')
         # password = data.get('password')  # Get password from request data
-        recaptcha_response = data.get('g-recaptcha-response')
+        # recaptcha_response = data.get('g-recaptcha-response')
 
-        # Validate reCAPTCHA
-        recaptcha_verification_url = 'https://www.google.com/recaptcha/api/siteverify'
-        recaptcha_data = {
-            'secret': settings.RECAPTCHA_SECRET_KEY,
-            'response': recaptcha_response
-        }
-        recaptcha_verification = requests.post(recaptcha_verification_url, data=recaptcha_data)
-        recaptcha_result = recaptcha_verification.json()
+        # # Validate reCAPTCHA
+        # recaptcha_verification_url = 'https://www.google.com/recaptcha/api/siteverify'
+        # recaptcha_data = {
+        #     'secret': settings.RECAPTCHA_SECRET_KEY,
+        #     'response': recaptcha_response
+        # }
+        # recaptcha_verification = requests.post(recaptcha_verification_url, data=recaptcha_data)
+        # recaptcha_result = recaptcha_verification.json()
 
-        if not recaptcha_result.get('success'):
-            return Response({'detail': 'Invalid reCAPTCHA. Please try again.'}, status=status.HTTP_400_BAD_REQUEST)
+        # if not recaptcha_result.get('success'):
+        #     return Response({'detail': 'Invalid reCAPTCHA. Please try again.'}, status=status.HTTP_400_BAD_REQUEST)
 
         # Validate email domain
         if not email.endswith('@akgec.ac.in'):
