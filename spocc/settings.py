@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'quiz',
     'rest_framework',
-    'sslserver',
     'rest_framework_simplejwt',
 ]
 
